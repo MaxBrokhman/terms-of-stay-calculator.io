@@ -62,6 +62,11 @@ input:valid{
     text-align: left;
     cursor: pointer;
 }
+.app-interface{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .term-input-item{
     display: flex;
 }

@@ -19,7 +19,7 @@
             window.validateYear(newDatesInput.querySelector('.in-input__year'), newDatesInput.querySelector('.out-input__year'));
         });
         newDatesInput.querySelector('.term-input__close').addEventListener('click', () => {
-            if(newDatesInput.previousElementSibling){
+            if(newDatesInput.previousElementSibling || newDatesInput.nextElementSibling){
                 newDatesInput.remove();
             } else{
                 formStartReset();
