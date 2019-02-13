@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Расчет сроков временного пребывания в РФ</title>
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <section class="app-description">
+                <h1 class="main-header">Приложение расчета срока временного пребывания в РФ</h1>
+                <div class="app-description__accordion">
+                    <div class="app-description__accordion-item">
+                        <div class="app-description__accordion-header">
+                            <button class="app-description__accordion-button">
+                                <h3 class="app-description__accordion-header-text">&#10010; Как и зачем считать сроки пребывания?</h3>
+                            </button>
+                        </div>
+                        <div class="app-description__accordion-body">
+                            <p class="app-description__accordion-body-text">
+                                В соответствии с ч. 1 ст. 5 ФЗ "О правовом положении иностранных граждан в Российской Федерации", срок временного пребывания в Российской Федерации иностранного гражданина, прибывшего в Российскую Федерацию в порядке, не требующем получения визы, не может превышать девяносто суток суммарно в течение каждого периода в сто восемьдесят суток, за исключением случаев, предусмотренных настоящим Федеральным законом, а также в случае, если такой срок не продлен в соответствии с настоящим Федеральным законом. При этом непрерывный срок временного пребывания в Российской Федерации указанного иностранного гражданина не может превышать девяносто суток.
+                                Превышение допустимых сроков временного пребывания может повлечь запрет на въезд в РФ.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="app-description__accordion-item">
+                        <div class="app-description__accordion-header">
+                            <button class="app-description__accordion-button">
+                                <h3 class="app-description__accordion-header-text">Кому это нужно?</h3>
+                            </button>
+                        </div>
+                        <div class="app-description__accordion-body">
+                            <p class="app-description__accordion-body-text">
+                                Данным приложением могут воспользоваться иностранные граждане, въехавшие в Россию в безвизовом порядке и не имеющие документов, определяющих их сроки пребывания в РФ. Такими документами могут быть: разрешение на временное проживание, вид на жительство, патент или разрешение на работу и др.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="app-description__accordion-item">
+                        <div class="app-description__accordion-header">
+                            <button class="app-description__accordion-button">
+                                <h3 class="app-description__accordion-header-text">Как узнать даты въезда и выезда?</h3>
+                            </button>
+                        </div>
+                        <div class="app-description__accordion-body">
+                            <p class="app-description__accordion-body-text">
+                                Даты въезда и выезда из России проще всего посмотреть в Вашем национальном паспорте по штампам Пограничной службы о пересечении границ. Ориентироваться необходимо именно на шампы российских пограничников. Стрелка вправо	&lt; означает выезд из РФ, в то время как стрелка влево &gt; - въезд.
+                            </p>
+                        </div>
+                    </div>
+                        
+                </div>
+                <p class="description">Для рассчета сроков временного пребывания Вам необходимо последодвательно ввести в интерфейс приложения данные о пересечении Вами границ РФ в хронологическом порядке, начиная с <span class="date--counted">. По окончании ввода дат нажите на кнопку "Закончить рассчет" для получения итогового рассчета.</span></p>
+                
+                <button class="app-start">Посчитать сроки</button>
+                <button class="app-reset">Очистить</button>
+            </section>
+            <section class="app-interface">
+                    Результат: <span id="result"></span>
+                <form class="terms-container">
+                    
+                </form>
+            </section>
+            <section class="app-result">
+
+            </section>
+            <footer>
+                <div>2019</div>
+                <div></div>
+            </footer>
+        </div>
+        <div class="popup-overlay">
+            <section class="error-popup">
+                <p class="error-popup__text">
+                </p>
+                <button class="error-popup__close">ОК</button>
+            </section>
+        </div>
+        <template id="terms-input-template" style="display: none">
+            <div class="term-input-item">
+                <fieldset class="in-input">
+                    <label>Введите дату въезда в формате "день-месяц-год"
+                        <input class="in-input__day" name="in-day" type="number" min="1" max="31" placeholder="01" required>
+                        <input class="in-input__month" name="in-month" type="number" min="1" max="12" placeholder="12" required>
+                        <input class="in-input__year" name="in-year" type="number" min="1970" placeholder="2018" required>
+                    </label>
+                </fieldset>
+                <fieldset class="out-input">
+                    <label>Введите дату выезда в формате "день-месяц-год"
+                        <input class="out-input__day" name="out-day" type="number" min="1" max="31" placeholder="01" required>
+                        <input class="out-input__month" name="out-month" type="number" min="1" max="12" placeholder="02" required>
+                        <input class="out-input__year" name="out-year" type="number" min="1970" placeholder="2019" required>
+                    </label>
+                </fieldset>
+                <button class="add-date-button">Добавить данные о въезде и выезде</button>
+                <span class="term-input__close" tabindex="0">&#10006;</span>
+            </div>
+        </template>
+        <script type="text/javascript" src="js/date-counted.js"></script>
+        <script type="text/javascript" src="js/on-error.js"></script>
+        <script type="text/javascript" src="js/date-class.js"></script>
+        <script type="text/javascript" src="js/count-terms.js"></script>
+        <script type="text/javascript" src="js/year-validation.js"></script>
+        <script type="text/javascript" src="js/render-input.js"></script>
+        <script type="text/javascript" src="js/accordion.js"></script>
+    </body>
+</html>
