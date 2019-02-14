@@ -28,7 +28,12 @@
                 allInputs[i].querySelector('.out-input').elements['out-month'].value,
                 allInputs[i].querySelector('.out-input').elements['out-year'].value
             );
-            result += terms[i].terms;
+            if(terms[i-1] && terms[i].inDate - terms[i-1].outDate < 0){
+                window.onError('Дата нового въезда в РФ не может быть раньше даты последнего выезда из РФ');
+                return;
+            } else {
+                result += terms[i].terms;
+            }
         }
 
         document.querySelector('#result').textContent = function() {
