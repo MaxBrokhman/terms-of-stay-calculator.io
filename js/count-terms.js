@@ -1,5 +1,5 @@
 (function(){
-    const ALLOWED_TERM = 90;
+    const ALLOWED_TERM = 89;//День въезда считается первым днем пребывания, поэтому 89
     const getDaysWord = (num) => {
         const daysWordEnd = '' + num;
         const lastSymbol = +daysWordEnd[daysWordEnd.length-1];
@@ -28,16 +28,7 @@
                 allInputs[i].querySelector('.out-input').elements['out-month'].value,
                 allInputs[i].querySelector('.out-input').elements['out-year'].value
             );
-        }
-
-        if(terms.length > 1){
-            for(let i = 0; i < terms.length; i++){
-                result += terms[i].terms;
-            }
-        } else if(terms.length == 0){
-            window.onError('Для подсчета необходимо внести даты въездов и выездов.');
-        } else{
-            result = terms[0].terms;
+            result += terms[i].terms;
         }
 
         document.querySelector('#result').textContent = function() {

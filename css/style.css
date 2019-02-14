@@ -11,6 +11,9 @@ button{
     align-self: center;
     outline: none;
 }
+input{
+    padding: 1%;
+}
 input:invalid{
     border-color: #f4424b;
 }
@@ -67,10 +70,21 @@ input:valid{
     justify-content: center;
     flex-direction: column;
 }
+.app-result{
+    margin: 3%;
+}
 .term-input-item{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
+.term-input-item fieldset{
+    flex-basis: 40%;
+}
+.term-input-item .add-date-button, 
+.term-input-item .term-input__close{
+    margin: 2%;
+}
 .terms-container{
     padding-bottom: 50px;
 }

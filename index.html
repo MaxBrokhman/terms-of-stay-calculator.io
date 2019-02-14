@@ -78,7 +78,7 @@
                 
             </section>
             <section class="app-interface">
-                <p class="description">По окончании ввода дат въезда и выезда нажите на кнопку "Закончить рассчет" для получения итогового рассчета.</span></p>
+                <p class="description">По окончании ввода дат въезда и выезда нажите на кнопку "Закончить подсчет" для получения итогового рассчета.</span></p>
                 
                 <button class="app-start">Посчитать сроки</button>
                 <button class="app-reset">Очистить</button>
@@ -105,17 +105,17 @@
         <template id="terms-input-template" style="display: none">
             <div class="term-input-item">
                 <fieldset class="in-input">
-                    <label>Введите дату въезда в формате "день-месяц-год"
-                        <input class="in-input__day" name="in-day" type="number" min="1" max="31" placeholder="01" required>
-                        <input class="in-input__month" name="in-month" type="number" min="1" max="12" placeholder="12" required>
-                        <input class="in-input__year" name="in-year" type="number" min="1970" placeholder="2018" required>
+                    <label>Введите дату въезда в РФ<br/>
+                        <input class="in-input__day" name="in-day" type="number" min="1" max="31" placeholder="День" required>
+                        <input class="in-input__month" name="in-month" type="number" min="1" max="12" placeholder="Месяц" required>
+                        <input class="in-input__year" name="in-year" type="number" min="1970" placeholder="Год" required>
                     </label>
                 </fieldset>
                 <fieldset class="out-input">
-                    <label>Введите дату выезда в формате "день-месяц-год"
-                        <input class="out-input__day" name="out-day" type="number" min="1" max="31" placeholder="01" required>
-                        <input class="out-input__month" name="out-month" type="number" min="1" max="12" placeholder="02" required>
-                        <input class="out-input__year" name="out-year" type="number" min="1970" placeholder="2019" required>
+                    <label>Введите дату выезда из РФ<br/>
+                        <input class="out-input__day" name="out-day" type="number" min="1" max="31" placeholder="День" required>
+                        <input class="out-input__month" name="out-month" type="number" min="1" max="12" placeholder="Месяц" required>
+                        <input class="out-input__year" name="out-year" type="number" min="1970" placeholder="Год" required>
                     </label>
                 </fieldset>
                 <button class="add-date-button">Добавить данные о въезде и выезде</button>
