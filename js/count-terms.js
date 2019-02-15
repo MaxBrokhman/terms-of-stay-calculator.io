@@ -21,12 +21,12 @@
         const allInputs = document.getElementsByClassName('term-input-item');
         for(let i = 0; i<allInputs.length; i++){
             terms[i] = new window.InAndOut(
-                allInputs[i].querySelector('.in-input').elements['in-day'].value, 
-                allInputs[i].querySelector('.in-input').elements['in-month'].value,
-                allInputs[i].querySelector('.in-input').elements['in-year'].value,
-                allInputs[i].querySelector('.out-input').elements['out-day'].value, 
-                allInputs[i].querySelector('.out-input').elements['out-month'].value,
-                allInputs[i].querySelector('.out-input').elements['out-year'].value
+                allInputs[i].elements['in-day'].value, 
+                allInputs[i].elements['in-month'].value,
+                allInputs[i].elements['in-year'].value,
+                allInputs[i].elements['out-day'].value, 
+                allInputs[i].elements['out-month'].value,
+                allInputs[i].elements['out-year'].value
             );
             if(terms[i-1] && terms[i].inDate - terms[i-1].outDate < 0){
                 window.onError('Дата нового въезда в РФ не может быть раньше даты последнего выезда из РФ');
@@ -39,7 +39,7 @@
         document.querySelector('#result').textContent = function() {
             const days = Math.floor(ALLOWED_TERM - result/(1000 * 60 * 60 * 24));
             if(days < 0){
-                return "Сроки Вашего пребывания в РФ превышены на " + (-days) +  " дней";
+                return "Сроки Вашего пребывания в РФ превышены на " + (-days) +  ' ' + getDaysWord(days);
             } else if(days == 0){
                 return "Сроки Вашего пребывания в РФ истекли. Дальнейшее нахождение в РФ без законных оснований может повлечь ограничения на въезд в РФ";
             } else {

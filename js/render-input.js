@@ -11,9 +11,13 @@
     };
     const renderInput = () => {
         const newDatesInput = document.querySelector('#terms-input-template').content.querySelector('.term-input-item').cloneNode(true);
+        newDatesInput.querySelector('.add-prevous-date-button').addEventListener('click', (evt) => {
+            evt.preventDefault();
+            newDatesInput.insertAdjacentElement('beforebegin', renderInput());
+        });
         newDatesInput.querySelector('.add-date-button').addEventListener('click', (evt) => {
             evt.preventDefault();
-            renderInput();
+            termsContainer.appendChild(renderInput());
         });
         newDatesInput.querySelector('.out-input__year').addEventListener('input', () => {
             window.validateYear(newDatesInput.querySelector('.in-input__year'), newDatesInput.querySelector('.out-input__year'));
@@ -25,11 +29,10 @@
                 formStartReset();
             }
         });
-        termsContainer.appendChild(newDatesInput);
-        return false;
+        return newDatesInput;
     };
     const appStartHandler = () => {
-        renderInput();
+        termsContainer.appendChild(renderInput());
         appStartButton.textContent = "Закончить подсчет";
         appStartButton.onclick = () => {
             let termsValidity = function(){

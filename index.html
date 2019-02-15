@@ -103,24 +103,23 @@
             </section>
         </div>
         <template id="terms-input-template" style="display: none">
-            <div class="term-input-item">
-                <fieldset class="in-input">
+            <fieldset class="term-input-item">
+                <button class="add-prevous-date-button">Добавить данные о предыдущем въезде и выезде</button>
+                <div class="terms-input__input-container">
                     <label>Введите дату въезда в РФ<br/>
                         <input class="in-input__day" name="in-day" type="number" min="1" max="31" placeholder="День" required>
                         <input class="in-input__month" name="in-month" type="number" min="1" max="12" placeholder="Месяц" required>
                         <input class="in-input__year" name="in-year" type="number" min="1970" placeholder="Год" required>
                     </label>
-                </fieldset>
-                <fieldset class="out-input">
                     <label>Введите дату выезда из РФ<br/>
                         <input class="out-input__day" name="out-day" type="number" min="1" max="31" placeholder="День" required>
                         <input class="out-input__month" name="out-month" type="number" min="1" max="12" placeholder="Месяц" required>
                         <input class="out-input__year" name="out-year" type="number" min="1970" placeholder="Год" required>
                     </label>
-                </fieldset>
-                <button class="add-date-button">Добавить данные о въезде и выезде</button>
+                </div>
+                <button class="add-date-button">Добавить данные о следующем въезде и выезде</button>
                 <span class="term-input__close" tabindex="0">&#10006;</span>
-            </div>
+            </fieldset>
         </template>
         <script type="text/javascript" src="js/date-counted.js"></script>
         <script type="text/javascript" src="js/on-error.js"></script>
