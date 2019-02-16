@@ -141,6 +141,11 @@ input:valid{
 }
 footer{
     border-top: 2px solid #bab6b6;
+    display: flex;
+}
+.footer__year,
+.footer__description{
+    margin: 2%;
 }
 .open{
     height: 250px;

@@ -2,6 +2,16 @@
     const appStartButton = document.querySelector('.app-start');
     const appResetButton = document.querySelector('.app-reset');
     const termsContainer = document.querySelector('.terms-container');
+    const tillPresentCheckHandler = (elem, flag) => {
+        elem.elements['out-day'].required = flag;
+        elem.elements['out-month'].required = flag;
+        elem.elements['out-year'].required = flag;
+        elem.elements['out-day'].disabled = !flag;
+        elem.elements['out-month'].disabled = !flag;
+        elem.elements['out-year'].disabled = !flag;
+        elem.querySelector('.add-date-button').disabled = !flag;
+        elem.querySelector('.add-date-button').style.backgroundColor = (!flag) ? '#bab6b6' : '#f4424b';
+    };
     const formStartReset = () => {
         termsContainer.reset();
         termsContainer.innerHTML = '';
@@ -27,6 +37,13 @@
                 newDatesInput.remove();
             } else{
                 formStartReset();
+            }
+        });
+        newDatesInput.elements['till-present'].addEventListener('change', () => {
+            if(newDatesInput.elements['till-present'].checked){
+                tillPresentCheckHandler(newDatesInput, false);
+            } else{
+                tillPresentCheckHandler(newDatesInput, true);
             }
         });
         return newDatesInput;

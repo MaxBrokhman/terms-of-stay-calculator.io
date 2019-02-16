@@ -91,8 +91,8 @@
 
             </section>
             <footer>
-                <div>2019</div>
-                <div></div>
+                <div class="footer__year">2019</div>
+                <div class="footer__description">Расчет сроков пребывания с помощью данной страницы не является официальным способом расчета сроков пребывания и может быть использован только для получения справочной информации о сроках пребывания в РФ. Для получения официальной информации о сроках Вашего пребывания обращайтесь в Управление по вопросам миграции ГУ МВД России в Вашем регионе.</div>
             </footer>
         </div>
         <div class="popup-overlay">
@@ -114,7 +114,8 @@
                     <label>Введите дату выезда из РФ<br/>
                         <input class="out-input__day" name="out-day" type="number" min="1" max="31" placeholder="День" required>
                         <input class="out-input__month" name="out-month" type="number" min="1" max="12" placeholder="Месяц" required>
-                        <input class="out-input__year" name="out-year" type="number" min="1970" placeholder="Год" required>
+                        <input class="out-input__year" name="out-year" type="number" min="1970" placeholder="Год" required><br/>
+                        <input name="till-present" type="checkbox">По настоящее время
                     </label>
                 </div>
                 <button class="add-date-button">Добавить данные о следующем въезде и выезде</button>

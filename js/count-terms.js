@@ -1,5 +1,6 @@
 (function(){
     const ALLOWED_TERM = 89;//День въезда считается первым днем пребывания, поэтому 89
+    const TODAY = new Date();
     const getDaysWord = (num) => {
         const daysWordEnd = '' + num;
         const lastSymbol = +daysWordEnd[daysWordEnd.length-1];
@@ -24,9 +25,10 @@
                 allInputs[i].elements['in-day'].value, 
                 allInputs[i].elements['in-month'].value,
                 allInputs[i].elements['in-year'].value,
-                allInputs[i].elements['out-day'].value, 
-                allInputs[i].elements['out-month'].value,
-                allInputs[i].elements['out-year'].value
+                allInputs[i].elements['out-day'].value || TODAY.getDate(), 
+                allInputs[i].elements['out-month'].value || TODAY.getMonth() + 1,
+                allInputs[i].elements['out-year'].value || TODAY.getFullYear(),
+                allInputs[i].elements['till-present'].checked
             );
             if(terms[i-1] && terms[i].inDate - terms[i-1].outDate < 0){
                 window.onError('Дата нового въезда в РФ не может быть раньше даты последнего выезда из РФ');
