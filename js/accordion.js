@@ -14,7 +14,7 @@ export default class Accordion {
     }
     init(){
         this.accordionItems.forEach((item) => {
-            item.querySelector(this.button).addEventListener('click', (evt)=>{
+            item.addEventListener('click', (evt)=>{
                 evt.preventDefault();
                 this.buttonHandler(item);
             });

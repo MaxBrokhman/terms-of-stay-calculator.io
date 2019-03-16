@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Калькулятор сроков временного пребывания в России</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500" rel="stylesheet">
-        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
     </head>
     <body>
         <header>
@@ -117,8 +117,8 @@
                         </section>
                         <button class="button app-interface__app-start-button">РАССЧИТАТЬ</button>
                         <button class="button app-interface__app-reset-button">ОЧИСТИТЬ</button>
-                        <div class="app-interface__watch-circle" style="width: 460px; height: 460px; background-image: url(../svg/watch.svg);"></div>
                     </section>
+                    <div class="app-interface__watch-circle" style="width: 460px; height: 460px; background-image: url(../svg/watch.svg);"></div>
                 </section>
             </div>
         </main>
@@ -139,9 +139,9 @@
             <div class="inputs-wrapper">
                 <a class="add-previous-date-button" href="#">Добавить более раннюю дату, если нужно</a>
                 <div class="input-in-date-wrapper">
-                    <input type="number" name="in-day" min="01" max="31" pattern="\d\d" autocomplete="off" placeholder="24">.
-                    <input type="number" name="in-month" min="01" max="12" pattern="\d\d" autocomplete="off" placeholder="12">.
-                    <input type="number" name="in-year" min="2014" pattern="\d{4}" autocomplete="off" placeholder="2018">
+                    <input type="number" name="in-day" min="01" max="31" pattern="[03][0-9]" autocomplete="off" placeholder="24">.
+                    <input type="number" name="in-month" min="01" max="12" pattern="[0-1][0-9]" autocomplete="off" placeholder="12">.
+                    <input type="number" name="in-year" min="2014" pattern="[0-2]01[0-9]" autocomplete="off" placeholder="2018">
                 </div> &mdash;
                 <div class="input-out-date-wrapper">
                     <input type="number" name="out-day" min="01" max="31" pattern="\d\d" autocomplete="off" placeholder="25">.

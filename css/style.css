@@ -101,14 +101,15 @@ input[type='number'] {
 }
 .app-first-screen{
     padding-bottom: 180px;
+    position: relative;
 }
 .app-first-screen::before{
     content: "";
     position: absolute;
     width: 709px;
     height: 709px;
-    right: 128px;
-    top: 3px;
+    right: -46px;
+    top: -164px;
     background-color: rgba(86, 204, 242, 0.7);
     border-radius: 50%;
 }
@@ -117,8 +118,8 @@ input[type='number'] {
     position: absolute;
     width: 507px;
     height: 507px;
-    right: 207px;
-    top: 69px;
+    right: 33px;
+    top: -98px;
     background-color: #2F80ED;
     border-radius: 50%;
     z-index: 2;
@@ -152,13 +153,13 @@ input[type='number'] {
 }
 .app-first-screen__arrow{
     position: absolute;
-    bottom: 55px;
-    left: 177px;
+    bottom: 60px;
+    left: 0;
 }
 .calculator-img{
     position: absolute;
-    top: 186px;
-    right: 355px;
+    top: 21px;
+    right: 183px;
     z-index: 5;
 }
 .app-description{
@@ -223,6 +224,11 @@ input[type='number'] {
 }
 .app-description__accordion-item.open::after{
     transform: translateY(-50%) rotate(90deg);
+}
+.app-description__accordion-item:hover::before,
+.app-description__accordion-item:hover::after,
+.app-description__accordion-item.open:hover::after{
+    cursor: pointer;
 }
 .app-description__accordion-body{
     transition-property: all;
@@ -299,7 +305,7 @@ input[type='number'] {
     line-height: 21px;
     margin: 0;
     width: 690px;
-    margin-bottom: 44px;
+    margin-bottom: 20px;
 }
 .app-interface__inputs{
     width: 900px;
@@ -397,7 +403,6 @@ input[type='number'] {
     border: 1px solid rgba(47, 128, 237, 0.4);
     margin-bottom: 40px;
     padding: 18px 48px;
-    position: relative;
     display: none;
 }
 .app-result__icon{
@@ -530,7 +535,7 @@ input[type='number'] {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 50%;
     right: -183px;
-    bottom: 107px;
+    top: 21%;
 }
 footer{
     background-color: #fff;

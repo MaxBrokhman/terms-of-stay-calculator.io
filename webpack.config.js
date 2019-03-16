@@ -1,7 +1,7 @@
 var path = require('path')
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-let conf = {
+module.exports = {
     entry: './js/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -54,17 +54,10 @@ let conf = {
             ignored: /node_modules/
         }
     },
+    devtool: 'inline-cheap-source-map',
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'css/style.css',
         })
     ]
-};
-
-module.exports = (env, options) => {
-    conf.devtool = options.mode === 'production' ? 
-    false :
-    'source-map';
-
-    return conf;
 };
