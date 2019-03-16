@@ -1,14 +1,23 @@
-(function(){
-    const accordionButtons = document.querySelectorAll('.app-description__accordion-button');
-    const accordionBodies = document.querySelectorAll('.app-description__accordion-body');
-    for(let i=0; i < accordionButtons.length; i++){
-        accordionButtons[i].addEventListener('click', ()=>{
-            accordionBodies[i].classList.toggle('open');
-            if(accordionBodies[i].classList.contains('open')){
-                accordionButtons[i].querySelector('.app-description__accordion-icon').innerHTML="&#9658;";
-            } else{
-                accordionButtons[i].querySelector('.app-description__accordion-icon').innerHTML="&#9660;";
-            }
-        }); 
+//accordion.js
+const isOpen = (elem) => elem.classList.contains('open');
+
+export default class Accordion {
+    constructor(accordionItems, button, body){
+        this.accordionItems = accordionItems;
+        this.button = button;
+        this.body = body;
     }
-})();
+    buttonHandler(item){
+        item.classList.toggle('open');
+        const body = item.querySelector(this.body);
+        body.style.height = isOpen(item)? body.scrollHeight + 'px' : 0;
+    }
+    init(){
+        this.accordionItems.forEach((item) => {
+            item.querySelector(this.button).addEventListener('click', (evt)=>{
+                evt.preventDefault();
+                this.buttonHandler(item);
+            });
+        })
+    }
+}

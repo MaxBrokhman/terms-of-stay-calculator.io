@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Калькулятор сроков временного пребывания в России</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
     </head>
     <body>
         <header>
@@ -25,7 +25,7 @@
                     <p class="app-first-screen__header-text">Хотите знать сколько времени на пребывание в России у вас осталось?</p>
                     <p class="app-first-screen__text">Рассчитайте сроки с учетом всех вьездов-выздов в страну</p>
                     <a class="button app-first-screen__button" href="#app-interface" tabindex="0">РАССЧИТАТЬ</a>
-                    <div class="calculator-img"></div>
+                    <div class="calculator-img" style="width: 209px; height: 278px; background-image: url(../svg/calc.svg);"></div>
                     <a href="#app-interface" tabindex="0">
                         <svg class="app-first-screen__arrow" width="32px" height="52px">
                             <line x1="16" y1="0" x2="16" y2="97%" stroke-width="3" stroke="#EC2127"/>
@@ -113,11 +113,11 @@
                         <section class="app-interface__app-result">
                             <span class="app-result__icon">i</span>
                             <h3 class="app-result__header">Результат</h3>
-                            <p class="app-result__content">Сроки Вашего пребывания в РФ не нарушены. Вы можете находиться в РФ еще 30 дней.</p>
+                            <p class="app-result__content"></p>
                         </section>
                         <button class="button app-interface__app-start-button">РАССЧИТАТЬ</button>
                         <button class="button app-interface__app-reset-button">ОЧИСТИТЬ</button>
-                        <div class="app-interface__watch-circle"></div>
+                        <div class="app-interface__watch-circle" style="width: 460px; height: 460px; background-image: url(../svg/watch.svg);"></div>
                     </section>
                 </section>
             </div>
@@ -138,8 +138,16 @@
         <template id="inputs-template">
             <div class="inputs-wrapper">
                 <a class="add-previous-date-button" href="#">Добавить более раннюю дату, если нужно</a>
-                <input type="text" name="in-date" placeholder="25.12.2018" autocomplete="off"> &mdash; 
-                <input type="text" name="out-date" placeholder="26.12.2018" autocomplete="off">
+                <div class="input-in-date-wrapper">
+                    <input type="number" name="in-day" min="01" max="31" pattern="\d\d" autocomplete="off" placeholder="24">.
+                    <input type="number" name="in-month" min="01" max="12" pattern="\d\d" autocomplete="off" placeholder="12">.
+                    <input type="number" name="in-year" min="2014" pattern="\d{4}" autocomplete="off" placeholder="2018">
+                </div> &mdash;
+                <div class="input-out-date-wrapper">
+                    <input type="number" name="out-day" min="01" max="31" pattern="\d\d" autocomplete="off" placeholder="25">.
+                    <input type="number" name="out-month" min="01" max="12" pattern="\d\d" autocomplete="off" placeholder="12">.
+                    <input type="number" name="out-year" min="2014" pattern="\d{4}" autocomplete="off" placeholder="2018">
+                </div>
                 <div class="app-interface__button-wrapper">
                     <button class="button add-date-button">
                     </button>
@@ -152,6 +160,6 @@
             </div>
         </template>
 
-        <script src="js/index.js"></script>
+        <script src="main.bundle.js"></script>
     </body>
 </html>
