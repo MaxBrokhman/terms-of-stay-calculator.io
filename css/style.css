@@ -553,6 +553,7 @@ footer{
 .footer-logo{
     padding-left: 22px;
     margin-bottom: 24px;
+    width: 261px;
 }
 .footer-description{
     display: flex;
