@@ -1,23 +1,11 @@
 var path = require('path')
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+let conf = {
     entry: './js/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'main.bundle.js'
-    },
-    optimization: {
-        splitChunks: {
-            cacheGroups:{
-                styles: {
-                    name: 'styles',
-                    test: '/\.css$/',
-                    chunks: 'all',
-                    enforce: true
-                }
-            }
-        }
     },
     module: {
         rules: [
@@ -60,7 +48,6 @@ module.exports = {
     stats: {
         colors: true
     },
-    devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, '/build'),
         watchOptions: {
@@ -72,4 +59,12 @@ module.exports = {
             filename: 'css/style.css',
         })
     ]
+};
+
+module.exports = (env, options) => {
+    conf.devtool = options.mode === 'production' ? 
+    false :
+    'source-map';
+
+    return conf;
 };
