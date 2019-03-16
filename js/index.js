@@ -1,8 +1,10 @@
 import '../css/style.css'
 import Accordion from './accordion'
-import DateInputs from './date-inputs.js'
+import DateInputs from './date-inputs'
 import complexHover from './complex-hover'
 import countTerms from './count-terms'
+import getCountedDate from './get-counted-date'
+
 const isVisible = (elem) => {
     const elemCoords = elem.getBoundingClientRect();
     const topVisible = elemCoords.top > 0 && elemCoords.top < document.documentElement.clientHeight;
@@ -44,6 +46,6 @@ const startTerms = () => {
         window.removeEventListener('scroll', startTerms);
     }
 };
-
+getCountedDate();
 window.addEventListener('scroll', startAccordion);
 window.addEventListener('scroll', startTerms);
