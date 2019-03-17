@@ -348,10 +348,6 @@ input[type='number'] {
 .input-out-date-wrapper input:last-child{
     width: 34px;
 }
-.input-in-date-wrapper input:invalid,
-.input-out-date-wrapper input:invalid{
-    border-color: #EC2127;
-}
 .app-interface__till-present{
     margin-top: 10px;
     display: block;
@@ -559,6 +555,9 @@ footer{
     display: flex;
     width: 891px;
     line-height: 21px;
+}
+footer h3{
+    bottom: 100%;
 }
 .footer-nav__link{
     margin-bottom: 15px;

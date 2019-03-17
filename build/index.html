@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Калькулятор сроков временного пребывания в России</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
         <link rel="stylesheet" href="../css/style.css" type="text/css">
     </head>
     <body>
@@ -21,6 +22,7 @@
         <main>
             <div class="wrapper main-wrapper">
                 <section class="app-first-screen">
+                    <h2 class="visually-hidden">Калькулятор сроков пребывания в России. Узнайте о соблюдении сроков пребывания.</h2>
                     <p class="app-first-screen__upper-text">КАЛЬКУЛЯТОР ПРЕБЫВАНИЯ</p>
                     <p class="app-first-screen__header-text">Хотите знать сколько времени на пребывание в России у вас осталось?</p>
                     <p class="app-first-screen__text">Рассчитайте сроки с учетом всех вьездов-выздов в страну</p>
@@ -125,11 +127,17 @@
         <footer>
             <div class="wrapper footer-wrapper">
                 <section class="footer-nav">
+                    <h3 class="visually-hidden">
+                        Панель навигации подвала сайта.
+                    </h3>
                     <a class="logo footer-logo" href="#main-logo">РАСЧЕТ ПРЕБЫВАНИЯ В РФ</a>
                     <a class="main-nav__link footer-nav__link" href="#app-description" tabindex="0">ОТВЕТЫ НА ВОПРОСЫ</a>
                     <a class="main-nav__link footer-nav__link" href="#app-interface" tabindex="0">РАСЧЕТ СРОКОВ</a>
                 </section>
                 <section class="footer-description">
+                    <h3 class="visually-hidden">
+                        Информационное разъяснение о применении функционала сайта.
+                    </h3>
                     Расчет сроков пребывания с помощью данной страницы не является официальным способом расчета и может быть использован только для получения справочной информации. Для получения официальной информации о сроках вашего пребывания в РФ обращайтесь в Управление по вопросам миграции ГУ МВД России в Вашем регионе.
                 </section>
             </div>
@@ -139,14 +147,14 @@
             <div class="inputs-wrapper">
                 <a class="add-previous-date-button" href="#">Добавить более раннюю дату, если нужно</a>
                 <div class="input-in-date-wrapper">
-                    <input type="number" name="in-day" min="01" max="31" pattern="[03][0-9]" autocomplete="off" placeholder="24">.
-                    <input type="number" name="in-month" min="01" max="12" pattern="[0-1][0-9]" autocomplete="off" placeholder="12">.
-                    <input type="number" name="in-year" min="2014" pattern="[0-2]01[0-9]" autocomplete="off" placeholder="2018">
+                    <input type="number" name="in-day" min="01" max="31"  autocomplete="off" placeholder="24">.
+                    <input type="number" name="in-month" min="01" max="12" autocomplete="off" placeholder="12">.
+                    <input type="number" name="in-year" min="2014" autocomplete="off" placeholder="2018">
                 </div> &mdash;
                 <div class="input-out-date-wrapper">
-                    <input type="number" name="out-day" min="01" max="31" pattern="\d\d" autocomplete="off" placeholder="25">.
-                    <input type="number" name="out-month" min="01" max="12" pattern="\d\d" autocomplete="off" placeholder="12">.
-                    <input type="number" name="out-year" min="2014" pattern="\d{4}" autocomplete="off" placeholder="2018">
+                    <input type="number" name="out-day" min="01" max="31"  autocomplete="off" placeholder="25">.
+                    <input type="number" name="out-month" min="01" max="12" autocomplete="off" placeholder="12">.
+                    <input type="number" name="out-year" min="2014"  autocomplete="off" placeholder="2018">
                 </div>
                 <div class="app-interface__button-wrapper">
                     <button class="button add-date-button">
