@@ -1,13 +1,12 @@
 //accordion.js
 const isOpen = (elem) => elem.classList.contains('open');
 
-export default class Accordion {
-    constructor(accordionItems, button, body){
+export default class {
+    constructor(accordionItems, body){
         this.accordionItems = accordionItems;
-        this.button = button;
         this.body = body;
     }
-    buttonHandler(item){
+    accordionHandler(item){
         item.classList.toggle('open');
         const body = item.querySelector(this.body);
         body.style.height = isOpen(item)? body.scrollHeight + 'px' : 0;
@@ -16,7 +15,7 @@ export default class Accordion {
         this.accordionItems.forEach((item) => {
             item.addEventListener('click', (evt)=>{
                 evt.preventDefault();
-                this.buttonHandler(item);
+                this.accordionHandler(item);
             });
         })
     }

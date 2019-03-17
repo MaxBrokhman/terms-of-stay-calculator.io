@@ -16,8 +16,7 @@ const termsContainer = document.querySelector('.app-interface__terms-container')
 const startAccordion = () => {
     if(isVisible(accordionSection)){
         const accordion = new Accordion(
-            document.querySelectorAll('.app-description__accordion-item'), 
-            '.app-description__accordion-button',
+            document.querySelectorAll('.app-description__accordion-item'),
             '.app-description__accordion-body'
         );
         accordion.init();

@@ -1,5 +1,6 @@
 //date-inputs.js
-import changeInputs from './change-inputs.js'
+import changeInputs from './change-inputs';
+import InputControls from './input-control';
 
 export default class DateInputs {
     constructor(options){
@@ -19,6 +20,9 @@ export default class DateInputs {
         }
     }
     render(){
+        this.inputs.querySelectorAll('input[type="number"]').forEach(input => {
+            new InputControls(input);
+        });
         return this.inputs;
     }
     removeDateHandler(evt){
