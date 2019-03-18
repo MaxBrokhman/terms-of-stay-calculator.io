@@ -15,9 +15,11 @@ const isTooLongAgo = (date) => {
 };
 
 export default class {
-    constructor(inDay, inMonth, inYear, outDay, outMonth, outYear, checked){
-        this.inDate = isTooLongAgo(new Date(inYear, inMonth-1, inDay));
-        this.outDate = checked? new Date() : isTooLongAgo(new Date(outYear, outMonth-1, outDay)) ;
+    constructor(inputs){
+        inputs.forEach(input => this[input.name] = input);
+        if(this['till-present']) this.checked = this['till-present'].checked;
+        this.inDate = isTooLongAgo(new Date(this['in-year'].value, this['in-month'].value-1, this['in-day'].value));
+        this.outDate = this.checked? new Date() : isTooLongAgo(new Date(this['out-year'].value, this['out-month'].value-1, this['out-day'].value)) ;
     }
     get terms(){
         return this.outDate - this.inDate;

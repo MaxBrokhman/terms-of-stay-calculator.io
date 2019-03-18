@@ -1,7 +1,8 @@
 //input-control.js
+
 let currentValue = 0;
 const currentYear = +(new Date).getFullYear();
-const minAndMax = {
+export const minAndMax = {
     'in-day': {
         min: 1,
         max: 31
@@ -40,6 +41,7 @@ const toggleInputs = (target) => {
 };
 const handlers = {
     'focus': (evt) => {
+        evt.target.parentNode.style.borderColor = '';
         currentValue = evt.target.value.length;
         if(evt.target.name === 'in-day' || evt.target.name === 'out-day'){
             evt.target.parentNode.querySelectorAll('input').forEach(input => {
@@ -55,13 +57,13 @@ const handlers = {
         }
     },
     'input': (evt) => {
-        const maxValue = evt.target.name === ('in-year' || 'out-year') ? 4 : 2;
+        const maxValue = (evt.target.name === 'in-year' || evt.target.name === 'out-year') ? 4 : 2;
         if(evt.target.value.length >= currentValue && evt.target.value.length >= maxValue){
             toggleInputs(evt.target);
         }
     },
     'keydown': (evt) => {
-        const maxValue = evt.target.name === ('in-year' || 'out-year') ? 4 : 2;
+        const maxValue = (evt.target.name === 'in-year' || evt.target.name === 'out-year') ? 4 : 2;
         if((evt.code === 'Backspace' && evt.target.value.length === 0 && evt.target.name !== 'in-day' && evt.target.name !== 'out-day') || (evt.code === 'ArrowLeft' && evt.target.name !== 'in-day' && evt.target.name !== 'out-day')){
             evt.target.previousElementSibling.focus();
         } else if(evt.code === 'ArrowRight' && evt.target.value.length >= maxValue && (evt.target.name !== 'in-year' && evt.target.name !== 'out-year')){

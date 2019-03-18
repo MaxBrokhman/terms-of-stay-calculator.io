@@ -1,9 +1,9 @@
-import '../css/style.css'
-import Accordion from './accordion'
-import DateInputs from './date-inputs'
-import complexHover from './complex-hover'
-import countTerms from './count-terms'
-import getCountedDate from './get-counted-date'
+import '../css/style.css';
+import Accordion from './accordion';
+import DateInputs from './date-inputs';
+import complexHover from './complex-hover';
+import countTerms from './count-terms';
+import getCountedDate from './get-counted-date';
 
 const isVisible = (elem) => {
     const elemCoords = elem.getBoundingClientRect();
