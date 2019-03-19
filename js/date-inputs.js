@@ -3,110 +3,85 @@ import changeInputs from './change-inputs';
 import InputControls from './input-control';
 
 export default class DateInputs {
-    constructor(options){
+    constructor(){
         this.inputs = document.querySelector('#inputs-template').content.cloneNode(true);
-        this.inputs.querySelector('.add-previous-date-button').addEventListener('click', this.addPreviousDateHandler);
-        if(!options.previousDate){
-            this.inputs.querySelector('.add-previous-date-button').remove();
-        }
-        this.inputs.querySelector('.add-date-button').addEventListener('click',this.addDateHandler);
-        this.inputs.querySelector('.remove-date-button').addEventListener('click', this.removeDateHandler);
-        if(!options.removeDate){
-            this.inputs.querySelector('.remove-date-button').remove();
-        }
-        this.inputs.querySelector('.app-interface__till-present').querySelector('input').addEventListener('change', this.tillPresentHandler);
-        if(!options.tillPresent){
-            this.inputs.querySelector('.app-interface__till-present').remove();
-        }
+        this.wrapper = this.inputs.querySelector('.inputs-wrapper');
+        this.addPreviousDate = this.wrapper.querySelector('.add-previous-date-button');
+        this.addDate = this.wrapper.querySelector('.add-date-button');
+        this.removeDate = this.wrapper.querySelector('.remove-date-button');
+        this.tillPresent = this.wrapper.querySelector('.app-interface__till-present');
+        this.outDate = this.wrapper.querySelector('.input-out-date-wrapper');
+        this.addDateHandler = this.addDateHandler.bind(this);
     }
-    render(){
-        this.inputs.querySelectorAll('input[type="number"]').forEach(input => {
-            new InputControls(input);
-        });
+    render(previousDate, removeDate, tillPresent){
+        this.inputs.querySelectorAll('input[type="number"]').forEach(input => new InputControls(input));
+        this.addDate.addEventListener('click',this.addDateHandler);
+
+        if(previousDate){
+            this.addPreviousDateHandler = this.addPreviousDateHandler.bind(this);
+            this.addPreviousDate.addEventListener('click', this.addPreviousDateHandler);
+        } else{
+            this.addPreviousDate.remove();
+        }
+
+        if(removeDate){
+            this.removeDateHandler = this.removeDateHandler.bind(this);
+            this.removeDate.addEventListener('click', this.removeDateHandler);
+        } else{
+            this.removeDate.remove();
+        }
+
+        if(tillPresent){
+            this.tillPresentHandler = this.tillPresentHandler.bind(this);
+            this.tillPresent.querySelector('input').addEventListener('change', this.tillPresentHandler);
+        } else{
+            this.tillPresent.remove();
+        }
+
         return this.inputs;
     }
+
     removeDateHandler(evt){
         evt.preventDefault();
-        const inputsWrapper = this.closest('.inputs-wrapper');
-        if(!inputsWrapper.nextElementSibling && inputsWrapper.previousElementSibling){
-            if(inputsWrapper.previousElementSibling === inputsWrapper.parentNode.firstElementChild){
-                changeInputs(inputsWrapper.previousElementSibling, DateInputs.renderOnlyInputs());
+        if(!this.wrapper.nextElementSibling && this.wrapper.previousElementSibling){
+            if(this.wrapper.previousElementSibling === this.wrapper.parentNode.firstElementChild){
+                changeInputs(this.wrapper.previousElementSibling, (new DateInputs).render(true, false, true));
             } else{
-                changeInputs(inputsWrapper.previousElementSibling, DateInputs.renderLastInputs());
+                changeInputs(this.wrapper.previousElementSibling, (new DateInputs).render(false, true, true));
             }
-        } else if (inputsWrapper.nextElementSibling && !inputsWrapper.previousElementSibling){
-            if(inputsWrapper.nextElementSibling === inputsWrapper.parentNode.lastElementChild){
-                changeInputs(inputsWrapper.nextElementSibling, DateInputs.renderOnlyInputs());
+        } else if (this.wrapper.nextElementSibling && !this.wrapper.previousElementSibling){
+            if(this.wrapper.nextElementSibling === this.wrapper.parentNode.lastElementChild){
+                changeInputs(this.wrapper.nextElementSibling, (new DateInputs).render(true, false, true));
             } else{
-                changeInputs(inputsWrapper.nextElementSibling, DateInputs.renderFirstInputs());
+                changeInputs(this.wrapper.nextElementSibling, (new DateInputs).render(true, true, false));
             }
         } 
-        inputsWrapper.remove();
+        this.wrapper.remove();
     }
     addDateHandler(evt){
         evt.preventDefault();
-        const inputsWrapper = this.closest('.inputs-wrapper');
-        if(!inputsWrapper.nextElementSibling && !inputsWrapper.previousElementSibling){
-            changeInputs(inputsWrapper, DateInputs.renderFirstInputs(), DateInputs.renderLastInputs());
-        } else if(!inputsWrapper.nextElementSibling){
-            changeInputs(inputsWrapper, DateInputs.renderMiddleInputs(), DateInputs.renderLastInputs());
+        if(!this.wrapper.nextElementSibling && !this.wrapper.previousElementSibling){
+            changeInputs(this.wrapper, (new DateInputs).render(true, true, false), (new DateInputs).render(false, true, true));
+        } else if(!this.wrapper.nextElementSibling){
+            changeInputs(this.wrapper, (new DateInputs).render(false, true, false), (new DateInputs).render(false, true, true));
         } else{
-            inputsWrapper.after(DateInputs.renderMiddleInputs());
+            this.wrapper.after((new DateInputs).render(false, true, false));
         }
     }
     addPreviousDateHandler(evt){
         evt.preventDefault();
-        const inputsWrapper = this.closest('.inputs-wrapper');
-        if(!inputsWrapper.nextElementSibling && !inputsWrapper.previousElementSibling){
-            changeInputs(inputsWrapper, DateInputs.renderLastInputs(), DateInputs.renderFirstInputs(), true);
+        if(!this.wrapper.nextElementSibling && !this.wrapper.previousElementSibling){
+            changeInputs(this.wrapper, (new DateInputs).render(false, true, true), (new DateInputs).render(true, true, false), true);
         } else{
-            changeInputs(inputsWrapper, DateInputs.renderMiddleInputs(), DateInputs.renderFirstInputs(), true);
+            changeInputs(this.wrapper, (new DateInputs).render(false, true, false), (new DateInputs).render(true, true, false), true);
         }
     }
-    tillPresentHandler(){
-        const inputsWrapper = this.closest('.inputs-wrapper');
-        inputsWrapper.querySelector('.input-out-date-wrapper').querySelectorAll('input').forEach(input => {
-            input.disabled = this.checked? true : false;
-            input.style.backgroundColor = this.checked? '#D8D8D8' : '#fff';
+    tillPresentHandler(evt){
+        this.outDate.querySelectorAll('input').forEach(input => {
+            input.disabled = evt.target.checked? true : false;
+            input.style.backgroundColor = evt.target.checked? '#D8D8D8' : '#fff';
         });
-        inputsWrapper.querySelector('.add-date-button').disabled = this.checked? true : false;
-        inputsWrapper.querySelector('.input-out-date-wrapper').style.backgroundColor = 
-            this.checked? '#D8D8D8' : '#fff';
+        this.addDate.disabled = evt.target.checked? true : false;
+        this.outDate.style.backgroundColor = evt.target.checked? '#D8D8D8' : '#fff';
     }
-
-    static renderLastInputs(){
-        return new this({
-            previousDate: false,
-            removeDate: true,
-            tillPresent: true
-        }).render();
-    }
-    static renderFirstInputs(){
-        return new this({
-            previousDate: true,
-            removeDate: true,
-            tillPresent: false
-        }).render();
-    }
-    static renderOnlyInputs(){
-        return new this({
-            previousDate: true,
-            removeDate: false,
-            tillPresent: true
-        }).render();
-    }
-    static renderInitialInputs(){
-        return new this({
-            previousDate: false,
-            removeDate: false,
-            tillPresent: true
-        }).render();
-    }
-    static renderMiddleInputs(){
-        return new this({
-            previousDate: false,
-            removeDate: true,
-            tillPresent: false
-        }).render();
-    }
-}
+};

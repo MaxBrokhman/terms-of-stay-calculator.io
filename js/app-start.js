@@ -25,7 +25,7 @@ const getFormattedDate = () => {
 export default class {
     constructor(){
         this.terms = document.querySelector('.app-interface__terms-container');
-        this.inputs = DateInputs.renderInitialInputs();
+        this.inputs = (new DateInputs).render(false, false, true);
         this.start = document.querySelector('.app-interface__app-start-button');
         this.reset = document.querySelector('.app-interface__app-reset-button');
         this.result = document.querySelector('.app-interface__app-result');
@@ -47,7 +47,7 @@ export default class {
         evt.preventDefault();
         this.terms.reset();
         this.terms.innerHTML = '';
-        this.terms.appendChild(this.inputs);
+        this.terms.appendChild((new DateInputs).render(false, false, true));
         this.result.style.display = 'none';
     }
     resetHover(){
