@@ -67,7 +67,8 @@ input[type='number'] {
     letter-spacing: 0.05em;
 }
 .main-logo{
-    margin-right: 7%;
+    margin-right: 5%;
+    width: 25%;
 }
 .logo::before{
     content: "";
@@ -624,6 +625,7 @@ footer h3{
     }
     .app-interface__inputs{
         align-self: center;
+        padding-left: 15%;
     }
     .footer-description{
         font-size: 14px;
@@ -655,6 +657,9 @@ footer h3{
     .logo{
         padding-left: 3%;
     }
+    .main-logo{
+        width: 30%;
+    }
     .logo::before{
         top: 0;
     }
@@ -670,12 +675,15 @@ footer h3{
     .app-first-screen::before{
         height: 92.7%;
         top: -11%;
+        width: 56%;
     }.app-first-screen::after{
         height: 65.11%;
         top: 1.16%;
+        width: 40.33%;
     }
     .calculator-img{
-        right: 3.64%;
+        right: 2.64%;
+        top: 1.6%;
     }
     .button{
         font-size: 11px;
@@ -702,10 +710,8 @@ footer h3{
         font-size: 35px;
     }
     .app-interface__inputs{
-        align-self: center;
-    }
-    .app-interface__inputs{
         width: 100%;
+        padding-left: 20%;
     }
     .app-interface__terms-header{
         font-size: 16px;
@@ -852,9 +858,14 @@ footer h3{
     }
     .main-logo{
         font-size: 11px;
-        margin: auto;
         width: auto;
-        padding-left: 5%;
+        margin: auto;
+        padding-left: 4%;
+    }
+    .logo:before{
+        width: 10px;
+        height: 10px;
+        top: 1px;
     }
     .main-nav{
         width: 100%;
@@ -862,6 +873,10 @@ footer h3{
     }
     .app-first-screen__arrow{
         display: none;
+    }
+    .app-first-screen__header-text{
+        font-size: 30px;
+        line-height: 40px;
     }
     .app-first-screen__button{
         font-size: 12px;
@@ -877,6 +892,9 @@ footer h3{
     .app-description__accordion-item::after{
         height: 20px;
         width: 3px;
+    }
+    .app-description__accordion-button{
+        padding-right: 15%;
     }
     .app-interface__header{
         font-size: 17px;
@@ -906,6 +924,12 @@ footer h3{
         flex-wrap: wrap;
         justify-content: space-around;
         align-content: center;
+    }
+    .input-in-date-wrapper input:not(:last-child), .input-out-date-wrapper input:not(:last-child){
+        width: 15%;
+    }
+    .input-in-date-wrapper input:last-child, .input-out-date-wrapper input:last-child{
+        width: 25%;
     }
     .app-interface__till-present{
         margin: 0;
@@ -939,6 +963,7 @@ footer h3{
     .app-interface__inputs{
         display: flex;
         flex-direction: column;
+        padding-left: 0;
     }
     .app-interface__till-present{
         padding-left: 5%;
@@ -970,5 +995,26 @@ footer h3{
         width: auto;
         padding-left: 10%;
         padding-right: 10%;
+    }
+}
+@media (max-width: 380px){
+    .app-description__accordion-item::before{
+        right: 4%;
+    }
+}
+@media (max-width: 335px){
+    body{
+        font-size: 10px;
+    }
+    .app-first-screen__header-text{
+        font-size: 26px;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+    .app-description__accordion-item::before{
+        right: 3.6%;
+    }
+    .input-in-date-wrapper input:last-child, .input-out-date-wrapper input:last-child{
+        width: 30%;
     }
 }

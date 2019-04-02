@@ -39,6 +39,8 @@ const toggleInputs = (target) => {
         target.nextElementSibling.focus();
     }
 };
+
+//Объект обработчиков сообытий для полей ввода дат
 const handlers = {
     'focus': (evt) => {
         evt.target.parentNode.style.borderColor = '';

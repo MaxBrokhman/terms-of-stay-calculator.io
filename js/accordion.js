@@ -6,6 +6,9 @@ export default class {
         this.accordionItems = accordionItems;
         this.body = body;
     }
+
+    /* Класс open сам по себе не влияет на функциональность аккордеона, но обеспечивает  
+    анимацию открытия и закрытия пунктов */  
     accordionHandler(item){
         item.classList.toggle('open');
         const body = item.querySelector(this.body);

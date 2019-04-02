@@ -3,6 +3,7 @@ import countTerms from './count-terms';
 import Accordion from './accordion';
 import DateInputs from './date-inputs';
 
+//Вспомогательная функция для определения того, находится ли элемент в пределах вьюпорта 
 const isVisible = (elem) => {
     const elemCoords = elem.getBoundingClientRect();
     const topVisible = elemCoords.top > 0 && elemCoords.top < document.documentElement.clientHeight;
@@ -22,6 +23,8 @@ const getFormattedDate = () => {
     const HALF_YEAR_AGO = currentDate.getDate() - 180;
     return new Intl.DateTimeFormat("ru").format(currentDate.setDate(HALF_YEAR_AGO));
 };
+
+//Класс инициирующий работу приложения
 export default class {
     constructor(){
         this.terms = document.querySelector('.app-interface__terms-container');
@@ -58,6 +61,8 @@ export default class {
             removeColors(this.reset);
         }
     }
+
+    //"Ленивая" инициализация скрипта аккордеона
     showAccordion(){
         const container = document.querySelector('.app-description__accordion');
         if(isVisible(container)){
@@ -65,6 +70,8 @@ export default class {
             window.removeEventListener('scroll', this.showAccordion);
         }
     }
+
+    //"Ленивая" отрисовка полей ввода дат
     showInputs(){
         if(isVisible(this.terms)){
             this.terms.appendChild(this.inputs);
@@ -73,6 +80,8 @@ export default class {
             this.reset.addEventListener('click', this.resetHandler);
         }
     }
+
+    //Определение и вставка даты - точки отсчета для подсчета сроков пребывания
     insertDate(date, elems){
         elems.forEach(elem => elem.textContent = date);
     }

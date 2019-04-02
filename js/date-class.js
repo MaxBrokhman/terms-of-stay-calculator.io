@@ -1,7 +1,9 @@
 //date-class.js
-import Result from './result.js'
 
 const HALF_YEAR = 180;
+
+/*Функция для целей расчета сроков пребывания приводящая слишком раннюю дату к
+ минимальной и слишком позднюю - к максимальной*/
 const isTooLongAgo = (date) => {
     let currentDate = new Date();
     const halfYearAgo = currentDate.setDate(currentDate.getDate() - HALF_YEAR);
@@ -14,6 +16,9 @@ const isTooLongAgo = (date) => {
     return date;
 };
 
+/*Класс подсчитывающий разницу между датой въезда и датой выезда в рамках одного блока
+ полей ввода дат. Принимает на вход все инпуты одного блока полей ввода дат и возвращает
+  объект с информацией о содержимом полей*/
 export default class {
     constructor(inputs){
         inputs.forEach(input => this[input.name] = input);

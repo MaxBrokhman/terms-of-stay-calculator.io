@@ -3,7 +3,8 @@ import DateClass from './date-class.js';
 import Result from './result.js';
 import {minAndMax} from './input-control';
 
-const ALLOWED_TERM = 89;//День въезда считается первым днем пребывания, поэтому 89
+//День въезда считается первым днем пребывания, поэтому 89
+const ALLOWED_TERM = 89;
 
 const getDaysWord = (num) => {
     const daysWordEnd = '' + num;
@@ -26,10 +27,15 @@ const isValid = (input) => {
         return true;
     }
 };
+
+//Функция подсчета результата и передающая результат в Result 
 export default () => {
     const terms = [];
     let result = 0;
     const allInputs = document.querySelectorAll('.inputs-wrapper');
+    /*Циклы for использованы для того, чтобы return при невалидных данных выбрасывал
+     сразу из функции подсчета с вызовом Result. При использовании, например, forEach,
+      return бы выбрасывал только из функции callback*/
     for(let i = 0; i < allInputs.length; i++){
         const numberInputs = allInputs[i].querySelectorAll('input[type="number"]');
         for(let j = 0; j < numberInputs.length; j++){

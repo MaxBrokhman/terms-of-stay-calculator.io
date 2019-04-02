@@ -2,6 +2,7 @@
 import changeInputs from './change-inputs';
 import InputControls from './input-control';
 
+//Класс создания и отрисовки блока полей ввода дат по html шаблону
 export default class DateInputs {
     constructor(){
         this.inputs = document.querySelector('#inputs-template').content.cloneNode(true);
@@ -41,6 +42,9 @@ export default class DateInputs {
         return this.inputs;
     }
 
+    /*Все обработчики добавляющие или удаляющие блок проверяют положение своего блока
+     полей ввода дат и, исходя из положения блока передают в changeInputs нужные 
+    настройки*/
     removeDateHandler(evt){
         evt.preventDefault();
         if(!this.wrapper.nextElementSibling && this.wrapper.previousElementSibling){
