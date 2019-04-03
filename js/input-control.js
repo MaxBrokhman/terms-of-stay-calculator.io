@@ -64,6 +64,8 @@ const handlers = {
             toggleInputs(evt.target);
         }
     },
+
+    //Для имитации цельной строки нажатие на backspace и стрелки позволяет перемещаться по инпутам поля ввода
     'keydown': (evt) => {
         const maxValue = (evt.target.name === 'in-year' || evt.target.name === 'out-year') ? 4 : 2;
         if((evt.code === 'Backspace' && evt.target.value.length === 0 && evt.target.name !== 'in-day' && evt.target.name !== 'out-day') || (evt.code === 'ArrowLeft' && evt.target.name !== 'in-day' && evt.target.name !== 'out-day')){

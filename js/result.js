@@ -1,4 +1,6 @@
 //result.js
+
+//Рендерит результат вычислений, либо сообщение о невалидных данных
 export default class{
     constructor(value, error){
         this.field = document.querySelector('.app-interface__app-result');
