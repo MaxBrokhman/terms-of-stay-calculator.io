@@ -1,4 +1,5 @@
 //date-class.js
+import {minAndMax} from './input-control';
 
 const HALF_YEAR = 180;
 
@@ -16,15 +17,33 @@ const isTooLongAgo = (date) => {
     return date;
 };
 
+const isValid = (input) => {
+    if (isNaN(input.value) || (input.value < minAndMax[input.name].min || input.value > minAndMax[input.name].max)){
+        //Если поля вводы даты выезда пусты, но отмечен чекбокс "по настоящее время" валидация должна проходить
+        if(+input.value === 0 && input.parentNode.className === 'input-out-date-wrapper' && !input.closest('.inputs-wrapper').querySelector('input[name="till-present"]').checked){
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return true;
+    }
+};
+
 /*Класс подсчитывающий разницу между датой въезда и датой выезда в рамках одного блока
  полей ввода дат. Принимает на вход все инпуты одного блока полей ввода дат и возвращает
   объект с информацией о содержимом полей*/
 export default class {
     constructor(inputs){
-        inputs.forEach(input => this[input.name] = input);
-        if(this['till-present']) this.checked = this['till-present'].checked;
+        inputs.forEach(input => {
+            if(isValid(input)){
+                this[input.name] = input;
+            }  else{
+                throw new Error(input.parentNode.className);
+            }
+        });
         this.inDate = isTooLongAgo(new Date(this['in-year'].value, this['in-month'].value-1, this['in-day'].value));
-        this.outDate = this.checked? new Date() : isTooLongAgo(new Date(this['out-year'].value, this['out-month'].value-1, this['out-day'].value)) ;
+        this.outDate = this['till-present'].checked? new Date() : isTooLongAgo(new Date(this['out-year'].value, this['out-month'].value-1, this['out-day'].value));
     }
     get terms(){
         return this.outDate - this.inDate;

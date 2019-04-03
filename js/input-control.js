@@ -30,10 +30,12 @@ export const minAndMax = {
 };
 const toggleInputs = (target) => {
     if(target.name === 'in-year'){
-        target.parentNode.nextElementSibling.firstElementChild.focus();
+        //если заполнено поле ввода года въезда, активизируетя фокус на поле ввода дня выезда 
+        target.parentNode.nextElementSibling.nextElementSibling.firstElementChild.focus();
     } else if(target.name === 'out-year' && target.closest('.inputs-wrapper').nextElementSibling){
         target.closest('.inputs-wrapper').nextElementSibling.querySelector('input').focus();
     } else if (!target.nextElementSibling && !target.closest('.inputs-wrapper').nextElementSibling){
+        /*если в блоке полей ввода дат ввод закончен и отсутствует следующий блок, фокус срабатывает на кнопке добавления нового блока */
         target.parentNode.nextElementSibling.firstElementChild.focus();
     } else{
         target.nextElementSibling.focus();
@@ -45,11 +47,9 @@ const handlers = {
     'focus': (evt) => {
         evt.target.parentNode.style.borderColor = '';
         currentValue = evt.target.value.length;
-        if(evt.target.name === 'in-day' || evt.target.name === 'out-day'){
-            evt.target.parentNode.querySelectorAll('input').forEach(input => {
-                input.placeholder = '';
-            });
-        }
+        evt.target.parentNode.querySelectorAll('input').forEach(input => {
+            input.placeholder = '';
+        });
     },
     'blur': (evt) => {
         if(evt.target.value.length > 0 && (isNaN(+evt.target.value) || +evt.target.value < minAndMax[evt.target.name].min)){

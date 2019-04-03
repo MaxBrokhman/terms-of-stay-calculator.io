@@ -63,7 +63,7 @@ input[type='number'] {
     font-weight: bold;
     padding-left: 2%;
     position: relative;
-    height: 20px;
+    height: 15px;
     letter-spacing: 0.05em;
 }
 .main-logo{
@@ -196,7 +196,6 @@ input[type='number'] {
     padding: 2.5% 2.4%;
     position: relative;
 }
-
 .app-description__accordion-item::before{
     content: "";
     display: block;
@@ -343,11 +342,11 @@ input[type='number'] {
 }
 .input-in-date-wrapper input:not(:last-child),
 .input-out-date-wrapper input:not(:last-child){
-    width: 4.8%;
+    width: 5%;
 }
 .input-in-date-wrapper input:last-child,
 .input-out-date-wrapper input:last-child{
-    width: 10.2%;
+    width: 12%;
 }
 .app-interface__till-present{
     margin-top: 1.1%;
@@ -395,6 +394,7 @@ input[type='number'] {
     width: 77.22%;
     height: 27.5%;
     box-sizing: border-box;
+    position: relative;
     background-color: #EAEAEA;
     border-radius: 10px;
     border: 1px solid rgba(47, 128, 237, 0.4);
@@ -405,14 +405,14 @@ input[type='number'] {
 .app-result__icon{
     font-weight: 500;
     text-align: center;
-    width: 2.1%;
-    height: 2.5%;
+    width: 22px;
+    height: 22px;
     background-color: #2F80ED;
     color: #fff;
     border-radius: 50%;
     line-height: 23px;
     position: absolute;
-    left: 1.5%;
+    left: 2.5%;
 }
 .app-result__header{
     display: inline-block;
@@ -523,7 +523,6 @@ input[type='number'] {
 .app-interface__button-wrapper:focus .remove-date-button{
     display: inline-block;
 }
-
 .app-interface__watch-circle{
     position: absolute;
     background-color: rgba(86, 204, 242, 0.7);
@@ -649,6 +648,9 @@ footer h3{
     }
     .wrapper{
         width: 720px;
+    }
+    .header-wrapper{
+        height: 100px;
     }
     .app-first-screen__header-text{
         font-size: 35px;
@@ -862,6 +864,9 @@ footer h3{
         margin: auto;
         padding-left: 4%;
     }
+    .logo{
+        height: 12px;
+    }
     .logo:before{
         width: 10px;
         height: 10px;
@@ -908,6 +913,13 @@ footer h3{
         text-align: center;
         margin-bottom: 2%;
         flex-grow: 1;
+    }
+    .app-interface__app-result{
+        align-self: center;
+        padding: 2% 10%;
+    }
+    .app-result__header{
+        font-size: 17px;
     }
     .add-date-button{
         margin: 0;
