@@ -150,7 +150,7 @@ input[type='number'] {
     padding: 1.88% 6.83%;
     display: block;
     width: 23%;
-    height: 10%;
+    height: 14%;
 }
 .app-first-screen__arrow{
     position: absolute;
@@ -162,6 +162,8 @@ input[type='number'] {
     top: 3.6%;
     right: 15.64%;
     z-index: 5;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .app-description{
     padding-top: 3.4%;
@@ -392,7 +394,7 @@ input[type='number'] {
 }
 .app-interface__app-result{
     width: 77.22%;
-    height: 27.5%;
+    min-height: 27.5%;
     box-sizing: border-box;
     position: relative;
     background-color: #EAEAEA;
@@ -583,14 +585,19 @@ footer h3{
         height: 98.7%;
         width: 59%;
         right: -11%;
+        top: -13%;
     }
     .app-first-screen::after{
         height: 72%;
         right: -3%;
+        top: 1.16%;
+    }
+    .app-first-screen__button{
+        height: 12%;
     }
     .calculator-img{
         right: 7.64%;
-        top: -4.4%;
+        top: 13.6%;
     }
     .app-description__accordion-item::before{
         right: 5.2%;
@@ -660,7 +667,7 @@ footer h3{
         padding-left: 3%;
     }
     .main-logo{
-        width: 30%;
+        width: 33%;
     }
     .logo::before{
         top: 0;
@@ -686,6 +693,7 @@ footer h3{
     .calculator-img{
         right: 2.64%;
         top: 1.6%;
+        transform: scale(0.7);
     }
     .button{
         font-size: 11px;
@@ -743,6 +751,7 @@ footer h3{
     }
     .footer-nav{
         width: 35%;
+        margin-right: 5%;
     }
     .footer-logo{
         padding-left: 8%;
@@ -756,7 +765,6 @@ footer h3{
         font-size: 11px;
     }
     .logo{
-        font-size: 13px;
         padding-left: 3%;
     }
     .button{
@@ -802,6 +810,7 @@ footer h3{
         margin: auto;
         width: 40%;
         font-size: 14px;
+        height: 19%;
     }
     .app-description__accordion-item::before{
         right: 3.8%;
@@ -820,6 +829,11 @@ footer h3{
     }
     .app-interface__terms-header{
         font-size: 13px;
+    }
+    .app-result__icon{
+        width: 18px;
+        height: 18px;
+        line-height: 19px;
     }
     .input-in-date-wrapper input:not(:last-child),
     .input-out-date-wrapper input:not(:last-child){
@@ -885,12 +899,13 @@ footer h3{
     }
     .app-first-screen__button{
         font-size: 12px;
+        height: 22%;
     }
     .app-description__accordion-header{
         font-size: 21px;
     }
     .app-description__accordion-item::before{
-        right: 4.3%;
+        right: 4.7%;
         width: 20px;
         height: 3px;
     }
@@ -920,6 +935,11 @@ footer h3{
     }
     .app-result__header{
         font-size: 17px;
+    }
+    .app-result__icon{
+        width: 22px;
+        height: 22px;
+        line-height: 23px;
     }
     .add-date-button{
         margin: 0;
@@ -1007,6 +1027,16 @@ footer h3{
         width: auto;
         padding-left: 10%;
         padding-right: 10%;
+    }
+}
+@media(max-width: 484px){
+    .app-first-screen__button{
+        height: 19%;
+    }
+}
+@media (max-width: 475px){
+    .app-description__accordion-item:before{
+        right: 4.35%;
     }
 }
 @media (max-width: 380px){
