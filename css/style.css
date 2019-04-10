@@ -1017,7 +1017,7 @@ footer h3{
         align-self: auto;
     }
     .footer-logo{
-        width: 50%;
+        width: 60%;
         padding-left: 5%;
         box-sizing: border-box;
         margin-bottom: 6%;
@@ -1035,8 +1035,17 @@ footer h3{
     }
 }
 @media (max-width: 475px){
+    .main-logo{
+        width: 45%;
+    }
     .app-description__accordion-item:before{
         right: 4.35%;
+    }
+    .footer-logo{
+        width: 52%;
+        padding-left: 5%;
+        box-sizing: border-box;
+        margin-bottom: 6%;
     }
 }
 @media (max-width: 380px){
@@ -1048,6 +1057,9 @@ footer h3{
     body{
         font-size: 10px;
     }
+    .main-logo{
+        width: 50%;
+    }
     .app-first-screen__header-text{
         font-size: 26px;
         padding-right: 3%;
@@ -1058,5 +1070,8 @@ footer h3{
     }
     .input-in-date-wrapper input:last-child, .input-out-date-wrapper input:last-child{
         width: 30%;
+    }
+    .footer-logo{
+        width: 60%;
     }
 }
